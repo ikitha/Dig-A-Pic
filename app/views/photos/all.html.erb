@@ -27,9 +27,13 @@
 
           <div class="row text-center rc">
             <div class="col-sm-4">
-              <%= link_to image_tag("#{p.url}-/resize/300x/"), "#hello", class: "fancybox" %>
+              <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
               <div style="display:none;">
-                  <%=image_tag("#{p.url}-/resize/800x/", id:"hello")%>
+                  <div id=<%=p.id%> class="text-center" >
+                  <%=image_tag("#{p.url}-/resize/800x/")%>
+                  <br>
+                  <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
+                  </div>
               </div>
             </div>
 
@@ -42,13 +46,27 @@
           </div>
           <div class="row text-center rc">
             <div class="col-sm-4">
-              <%= image_tag("#{p.url}-/resize/300x/") %>
+              <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
+              <div style="display:none;">
+                  <div id=<%=p.id%> class="text-center" >
+                  <%=image_tag("#{p.url}-/resize/800x/")%>
+                  <br>
+                  <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
+                  </div>
+              </div>
             </div>
 
         <% else %>
 
             <div class="col-sm-4">
-              <%= image_tag("#{p.url}-/resize/300x/") %>
+              <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
+              <div style="display:none;">
+                  <div id=<%=p.id%> class="text-center" >
+                  <%=image_tag("#{p.url}-/resize/800x/")%>
+                  <br>
+                  <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
+                  </div>
+              </div>
             </div>
 
         <% end %> 
