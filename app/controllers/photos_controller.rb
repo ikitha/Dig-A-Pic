@@ -13,7 +13,7 @@ class PhotosController < ApplicationController
 
   def all
     #binding.pry
-    @portraits = Category.find(1).photos
+    @portraits = Category.find(1).photos.reverse.first(9)
     @bw = Category.find(2).photos
     @landscape = Category.find(3).photos
     @abstract = Category.find(4).photos
