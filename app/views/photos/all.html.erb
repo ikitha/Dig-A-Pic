@@ -1,4 +1,8 @@
 
+
+
+
+
 <div role="tabpanel">
   <ul class="nav nav-tabs" role="tablist" id="myTab">
     <li role="presentation" class="active"><a href="#portrait" aria-controls="portrait" role="tab" data-toggle="tab">Portrait</a></li>
@@ -21,9 +25,16 @@
 
         <% if index == 0 %>
 
-          <div class="row text-center">
+          <div class="row text-center rc">
             <div class="col-sm-4">
-              <%= image_tag("http://www.ucarecdn.com/85b5644f-e692-4855-9db0-8c5a83096e25/-/resize/200x/filename.jpg") %>
+              <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
+              <div style="display:none;">
+                  <div id=<%=p.id%> class="text-center" >
+                  <%=image_tag("#{p.url}-/resize/800x/")%>
+                  <br>
+                  <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
+                  </div>
+              </div>
             </div>
 
         <% elsif index % 9 == 0 %>
@@ -33,15 +44,29 @@
         <% elsif index % 3 == 0 %>
 
           </div>
-          <div class="row text-center">
+          <div class="row text-center rc">
             <div class="col-sm-4">
-              <%= image_tag("http://www.ucarecdn.com/85b5644f-e692-4855-9db0-8c5a83096e25/-/resize/200x/filename.jpg")%>
+              <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
+              <div style="display:none;">
+                  <div id=<%=p.id%> class="text-center" >
+                  <%=image_tag("#{p.url}-/resize/800x/")%>
+                  <br>
+                  <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
+                  </div>
+              </div>
             </div>
 
         <% else %>
 
             <div class="col-sm-4">
-              <%= image_tag("http://www.ucarecdn.com/85b5644f-e692-4855-9db0-8c5a83096e25/-/resize/200x/filename.jpg") %>
+              <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
+              <div style="display:none;">
+                  <div id=<%=p.id%> class="text-center" >
+                  <%=image_tag("#{p.url}-/resize/800x/")%>
+                  <br>
+                  <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
+                  </div>
+              </div>
             </div>
 
         <% end %> 
@@ -65,4 +90,11 @@
   $(function () {
     $('#myTab a:last').tab('show')
   })
+
+
+
+
+  $(document).ready(function() {
+  $("a.fancybox").fancybox();
+});
 </script>
