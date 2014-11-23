@@ -15,11 +15,11 @@ h4,
 h5,
 h6 {
     font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
+    font-size: 2em;
 }
 
 .lead {
-    font-size: 18px;
+    font-size: 2em;
     font-weight: 400;
 }
 
@@ -30,6 +30,7 @@ h6 {
     color: #f8f8f8;
     background: url("/assets/untitled-2-52.jpg") no-repeat center center;
     background-size: cover;
+    height: 20%;
 }
 
 .intro-message {
@@ -52,28 +53,23 @@ h6 {
     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
 }
 
-
-.intro-divider {
-    width: 400px;
-    border-top: 1px solid #f8f8f8;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
-}
-
-.intro-message > h3 {
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-}
-
 @media(max-width:767px) {
+		.intro-divider {
+		    width: 400px;
+		}
+
+		.intro-message > h3 {
+		    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+		}
     .intro-message {
         padding-bottom: 15%;
     }
 
     .intro-message > h1 {
-        font-size: 3em;
+        font-size: 2em;
     }
 
     ul.intro-social-buttons > li {
-        display: block;
         margin-bottom: 20px;
         padding: 0;
     }
@@ -89,7 +85,7 @@ h6 {
 
 .network-name {
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 1em;
     font-weight: 400;
     letter-spacing: 2px;
 }
@@ -139,7 +135,7 @@ h6 {
     margin-top: 0;
 }
 
-@media(max-width:1199px) {
+@media(max-width:767px) {
     ul.banner-social-buttons {
         float: left;
         margin-top: 15px;
