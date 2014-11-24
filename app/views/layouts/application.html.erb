@@ -34,8 +34,14 @@
                   <li>
                       <a href="<%= all_photos_path %>">Explore</a>
                   </li>
+                  <% if !session[:user_id] %>
+                    <li>
+                        <a href="<%= login_path %>">Login</a>
+                    </li>
+                  <% end %>
                   <% if session[:user_id] %>
                     <li><a href="<%= new_user_photo_path(session[:user_id]) %>">Upload</a></li>
+                    <li><a href="<%= user_photos_path(session[:user_id]) %>">My Photos</a></li>
                     <li class="dropdown">
                       <a id="accountDropD" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account<span class="caret"></span></a>
                       <ul aria-labelledby="accountDropD" class="dropdown-menu" role="menu">
