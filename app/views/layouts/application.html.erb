@@ -2,16 +2,12 @@
 <html>
 <head>
   <title>Project2</title>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -38,11 +34,17 @@
                   <li>
                       <a href="<%= all_photos_path %>">Explore</a>
                   </li>
+                  <% if !session[:user_id] %>
+                    <li>
+                        <a href="<%= login_path %>">Login</a>
+                    </li>
+                  <% end %>
                   <% if session[:user_id] %>
                     <li><a href="<%= new_user_photo_path(session[:user_id]) %>">Upload</a></li>
+                    <li><a href="<%= user_photos_path(session[:user_id]) %>">My Photos</a></li>
                     <li class="dropdown">
-                      <a href="<%= user_path(session[:user_id]) %>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account<span class="caret"></span></a>
-                      <ul class="dropdown-menu" role="menu">
+                      <a id="accountDropD" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account<span class="caret"></span></a>
+                      <ul aria-labelledby="accountDropD" class="dropdown-menu" role="menu">
                         <li><a href="<%= user_path(session[:user_id]) %>">Settings</a></li>
                         <li><a href="#">Orders</a></li>
                       </ul>
@@ -70,6 +72,7 @@
   <div class="container-fluid">
     <%= yield %>
   </div>
-  
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
 </html>

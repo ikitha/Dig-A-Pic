@@ -1,15 +1,24 @@
+<div class="jumbotron">
+	<div class="row">
+		<div class="col-md-12 accountPage">
+			<h3>Account Info</h3>
 
+			<p>
+			  Username: <%= @user.username %>
+			</p>
+			<p>
+			  First Name: <%= @user.firstname %>
+			</p>
+			<p>
+			  Last Name: <%= @user.lastname %>
+			</p>
+			<p>
+			  Email: <%= @user.email %>
+			</p>
+			<%= link_to("Edit your profile", edit_user_path, class: "btn btn-info") %>
+		</div>
+	</div>
+</div>
 
-<p>
-  ID: <%= @user.id %>
-</p>
-
-<p>
-  Username: <%= @user.username %>
-</p>
-
-
-
-<%= link_to("Edit your profile", edit_user_path) %>
 
 
