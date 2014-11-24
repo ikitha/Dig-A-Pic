@@ -25,21 +25,26 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = @current_user.photos.create(photo_params)
-    params[:photo][:categories] ||= []
-    @photo.categories = []
-    @photo.categories << Category.find(params[:photo][:categories])
-    if @photo.save
-      # split the url 
-      # make an api call with HTTParty to get json hash
-      # save the width and height to the DB
-      photo_meta_data = HTTParty.get("#{@photo.url}-/json/")
-      @photo.update_attributes(width: photo_meta_data["width"], height: photo_meta_data["height"])
-
-      flash[:success] = "Photo created"
-      redirect_to user_photo_path(@current_user, @photo.id)
+    if @current_user.banks.empty?
+      flash[:error] = "Please link a bank account to recieve payment"
+      redirect_to new_user_bank_path
     else
-      render :new
+      @photo = @current_user.photos.create(photo_params)
+      params[:photo][:categories] ||= []
+      @photo.categories = []
+      @photo.categories << Category.find(params[:photo][:categories])
+      if @photo.save
+        # split the url 
+        # make an api call with HTTParty to get json hash
+        # save the width and height to the DB
+        photo_meta_data = HTTParty.get("#{@photo.url}-/json/")
+        @photo.update_attributes(width: photo_meta_data["width"], height: photo_meta_data["height"])
+
+        flash[:success] = "Photo created"
+        redirect_to user_photo_path(@current_user, @photo.id)
+      else
+        render :new
+      end
     end
   end
 
