@@ -1,11 +1,6 @@
 // Place all the styles related to the access controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body,
-html {
-    width: 100%;
-    height: 100%;
-}
 
 body,
 h1,
@@ -17,7 +12,10 @@ h6 {
     font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 2em;
 }
-
+.logopicture {
+    height: 70px;
+    margin-top: -12%;
+}
 .lead {
     font-size: 2em;
     font-weight: 400;
@@ -28,15 +26,17 @@ h6 {
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
-    background: url("/assets/untitled-2-52.jpg") no-repeat center center;
+    background: url(<%= asset_path('Birds-Dancer-Laria-Saunders-3708.jpg') %>) no-repeat center center;
+    // background: url("/assets/Birds-Dancer-Laria-Saunders-3708.jpg") no-repeat center center;
     background-size: cover;
-    height: 20%;
+    max-height: 750px;
 }
 
 .intro-message {
     position: relative;
     padding-top: 20%;
     padding-bottom: 20%;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
 }
 
 .intro-message > h1 {
@@ -116,7 +116,7 @@ h6 {
 .banner {
     padding: 100px 0;
     color: #f8f8f8;
-    background: url("/assets/Water-Photos-Drop-of-Zen-2w- Laria-.jpg") no-repeat center center;
+    background: url(<%= asset_path('Water-Photos-Drop-of-Zen-2w-Laria.jpg') %>) no-repeat center center;
     background-size: cover;
 }
 
@@ -136,28 +136,28 @@ h6 {
 }
 
 @media(max-width:767px) {
-    ul.banner-social-buttons {
-        float: left;
-        margin-top: 15px;
-    }
-}
+  ul.banner-social-buttons {
+      float: left;
+      margin-top: 15px;
+  }
+  .banner h2 {
+      margin: 0;
+      text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+      font-size: 2.2em;
+  }
 
-@media(max-width:767px) {
-    .banner h2 {
-        margin: 0;
-        text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-        font-size: 3em;
-    }
+  ul.banner-social-buttons > li {
+      display: block;
+      margin-bottom: 20px;
+      padding: 0;
+  }
 
-    ul.banner-social-buttons > li {
-        display: block;
-        margin-bottom: 20px;
-        padding: 0;
-    }
-
-    ul.banner-social-buttons > li:last-child {
-        margin-bottom: 0;
-    }
+  ul.banner-social-buttons > li:last-child {
+      margin-bottom: 0;
+  }
+  .network-name {
+		font-size: .8em;
+  }
 }
 
 footer {

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use postgresql as the database for Active Record
@@ -77,4 +77,8 @@ group :development do
   gem "pry-byebug"
   gem "quiet_assets"
   gem "awesome_print", require: "ap"
+end
+
+group :production do
+  gem 'rails_12factor'
 end

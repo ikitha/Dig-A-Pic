@@ -1,52 +1,59 @@
 <div class="container text-center">
 
-<% if @user.errors.any? %>
-  <ul class = "text-danger list-unstyled">
-   <%  for err in @user.errors.full_messages %>
-    <li>
-      <%= err%>
-    </li>
-    <% end %>
-  </ul>
-<% end %>
-
-  <%= form_for(@user, url: user_path) do |f|%>
-<br>
-<div class="form-group">
-      <%= f.label(:username, class: "control-label") %>
-      <%= f.text_field :username, autofocus: true, class: "form-control" %>
-
-</div>
-<div class="form-group">
-      <%= f.label(:firstname, class: "control-label") %>
-      <%= f.text_field :firstname, autofocus: true, class: "form-control" %>
-
-</div>
-<div class="form-group">
-      <%= f.label(:lastname, class: "control-label") %>
-      <%= f.text_field :lastname, autofocus: true, class: "form-control" %>
-
-</div>
-<div class="form-group">
-      <%= f.label(:email, class: "control-label") %>
-      <%= f.text_field :email, autofocus: true, class: "form-control" %>
-
-</div>
-<div class="form-group">
-
-      <%= f.label(:password, class: "control-label") %>
-      <%= f.password_field(:password, class: "form-control") %>
-</div>
-<div class="form-group">
-
-      <%= f.label(:password_confirmation, class: "control-label") %>
-      <%= f.password_field(:password_confirmation, class: "form-control") %>
-</div>
-<div class="form-group">
-
-      <%= f.submit("Commit Changes", class: "btn btn-info") %>
-</div>
-
+  <% if @user.errors.any? %>
+    <ul class = "text-danger list-unstyled">
+     <%  for err in @user.errors.full_messages %>
+       <li>
+        <%= err%>
+       </li>
+      <% end %>
+    </ul>
   <% end %>
+
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-md-12 accountPage">
+        <h3>Edit Your Account</h3>
+        <%= form_for(@user, url: user_path) do |f|%>
+        <br>
+        <div class="form-group">
+          <%= f.label(:username, class: "control-label") %>
+          <%= f.text_field :username, autofocus: true, class: "form-control" %>
+
+        </div>
+        <div class="form-group">
+          <%= f.label(:firstname, class: "control-label") %>
+          <%= f.text_field :firstname, autofocus: true, class: "form-control" %>
+
+        </div>
+        <div class="form-group">
+          <%= f.label(:lastname, class: "control-label") %>
+          <%= f.text_field :lastname, autofocus: true, class: "form-control" %>
+
+        </div>
+        <div class="form-group">
+          <%= f.label(:email, class: "control-label") %>
+          <%= f.text_field :email, autofocus: true, class: "form-control" %>
+
+        </div>
+        <div class="form-group">
+
+          <%= f.label(:password, class: "control-label") %>
+          <%= f.password_field(:password, class: "form-control") %>
+        </div>
+        <div class="form-group">
+
+          <%= f.label(:password_confirmation, class: "control-label") %>
+          <%= f.password_field(:password_confirmation, class: "form-control") %>
+        </div>
+        <div class="form-group">
+
+          <%= f.submit("Commit Changes", class: "btn btn-info") %>
+        </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
 
 </div>
