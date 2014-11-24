@@ -18,6 +18,8 @@ class AccessController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
+      user_b = Balanced::Customer.new(:name => "#{@user.firstname} #{@user.lastname}", :meta => {:database_id => @user.id}).save
+      @user.update_attribute(:balanced_href, user_b.attributes[:href])
       session[:user_id] = @user.id
       flash[:success] = "You are now logged in!"
       UserMailer.signup_confirmation(@user, root_url()).deliver
@@ -25,7 +27,7 @@ class AccessController < ApplicationController
     else
       render :signup
     end
-   end
+  end
 
   def reset_password
     @token = params[:token]
