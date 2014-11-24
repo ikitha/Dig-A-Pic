@@ -1,5 +1,64 @@
-<% @photos.each do |p| %>
-	<li>
-      <%= image_tag(p.url) %>
-    </li>
-<% end %>
+
+<!-- james code v2 below -->
+
+      <% @photos.each_with_index do |p, index| %>
+
+        <% if index == 0 %>
+
+          <div class="row text-center rc">
+            <div class="col-sm-4">
+              <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
+              <div style="display:none;">
+                  <div id=<%=p.id%> class="text-center" >
+                  <%=image_tag("#{p.url}-/resize/800x/")%>
+                  <br>
+                  <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
+                  </div>
+              </div>
+            </div>
+
+        <% elsif index % 9 == 0 %>
+
+          </div>
+
+        <% elsif index % 3 == 0 %>
+
+          </div>
+          <div class="row text-center rc">
+            <div class="col-sm-4">
+              <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
+              <div style="display:none;">
+                  <div id=<%=p.id%> class="text-center" >
+                  <%=image_tag("#{p.url}-/resize/800x/")%>
+                  <br>
+                  <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
+                  </div>
+              </div>
+            </div>
+
+        <% else %>
+
+            <div class="col-sm-4">
+              <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
+              <div style="display:none;">
+                  <div id=<%=p.id%> class="text-center" >
+                  <%=image_tag("#{p.url}-/resize/800x/")%>
+                  <br>
+                  <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
+                  </div>
+              </div>
+            </div>
+
+        <% end %> 
+      <% end %>
+
+    </div>
+    </div>
+
+    
+
+<script>
+  $(document).ready(function() {
+  $("a.fancybox").fancybox();
+});
+</script>
