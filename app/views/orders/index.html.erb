@@ -1,0 +1,19 @@
+<% @buyer_orders.each do |b_order| %>
+<p>
+  Seller ID <%= b_order.seller_id%>
+  <br>
+  Buyer ID: <%= b_order.buyer_id %>
+  <br>
+  Photo ID: <%= b_order.photo_id %>
+</p>
+<% end %>
+
+<% @seller_orders.each do |s_order| %>
+<p>
+  Seller ID <%= s_order.seller_id%>
+  <br>
+  Buyer ID: <%= s_order.buyer_id %>
+  <br>
+  Photo ID: <%= s_order.photo_id %>
+</p>
+<% end %>

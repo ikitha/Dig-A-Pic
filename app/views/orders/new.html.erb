@@ -28,7 +28,21 @@
 			</p>
 			<% end %>
 
-			<% end %>
+
+	<% else %>
+	
+	<p>
+ 
+	   <%= link_to( "Confirm", photo_orders_path, { method: :post, class: "btn btn-primary"})%>
+	</p>
+	
+
+	
+
+<% end %>
+
+			
 		</div>
 	</div>
 </div>
+
