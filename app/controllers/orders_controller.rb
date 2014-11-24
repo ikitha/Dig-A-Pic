@@ -1,10 +1,28 @@
 class OrdersController < ApplicationController
+
+
+  def index
+    if params[:user_id].to_i != session[:user_id]
+      #binding.pry
+      redirect_to all_photos_path
+    end
+    #binding.pry
+    @user = User.find_by_id(session[:user_id])
+
+    @buyer_orders = Order.where(:buyer_id => session[:user_id])
+
+    @seller_orders = Order.where(:seller_id => session[:user_id])
+
+  end
+
+
   def new
   	@photo = Photo.find_by_id(params[:photo_id])
   	@seller = @photo.user
   	@buyer = User.find_by_id(session[:user_id])
   	@order = Order.new
   	@card = Card.new
+    #binding.pry
 
   end
 
@@ -13,9 +31,10 @@ class OrdersController < ApplicationController
   	@photo = Photo.find_by_id(card_params[:photo_id])
   	@seller = @photo.user
   	@buyer = User.find_by_id(session[:user_id])
+    #binding.pry
   	merchant_b = Balanced::Customer.fetch(@seller.balanced_href)
 
-  	binding.pry
+  	#binding.pry
 
   	if @buyer.balanced_href.nil?
 
@@ -47,7 +66,7 @@ class OrdersController < ApplicationController
   	
   	end
 
-  	bank_accounts_seller_b = Balanced::BankAccount.fetch(@seller.cards[1].balanced_href)
+  	bank_accounts_seller_b = Balanced::BankAccount.fetch(@seller.banks[0].balanced_href)
   	marketplace_bank_account = Balanced::Marketplace.mine.owner_customer.bank_accounts.first
 
   	credit_amount = @photo.price*0.70
@@ -70,14 +89,16 @@ class OrdersController < ApplicationController
 	    :amount => (@photo.price - credit_amount)*100
 		)
 
+    #binding.pry
+
 		@order = Order.create(:buyer_id => @buyer.id, :seller_id => @seller.id, :photo_id => @photo.id, :balanced_href => order_b.attributes[:href])
 
-  	puts card_params
+  	#puts card_params
 
-  	binding.pry
+  	#binding.pry
   	
 
-  	redirect_to home_path
+  	redirect_to all_photos_path
 
 
   end

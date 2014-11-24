@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   root 'access#landing'
   
   get 'login', to: "access#login", as: 'login'
@@ -23,12 +24,15 @@ Rails.application.routes.draw do
   resources :categories
 
   resources :photos do
-    resources :orders
+    resources :orders, only: [:create, :new]
   end
 
   resources :users, except: [:create, :new] do
     resources :photos
+    resources :orders, only: [:index]
+    resources :banks, only: [:new, :create]
   end
+
 
   get 'home', to: "photos#all", as: 'all_photos'
 end
