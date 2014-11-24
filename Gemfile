@@ -78,3 +78,7 @@ group :development do
   gem "quiet_assets"
   gem "awesome_print", require: "ap"
 end
+
+group :production do
+  gem 'rails_12factor'
+end
