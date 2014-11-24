@@ -1,11 +1,6 @@
 // Place all the styles related to the access controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body,
-html {
-    width: 100%;
-    height: 100%;
-}
 
 body,
 h1,
@@ -30,7 +25,7 @@ h6 {
     color: #f8f8f8;
     background: url("/assets/untitled-2-52.jpg") no-repeat center center;
     background-size: cover;
-    max-height: 10%;
+    max-height: 750px;
 }
 
 .intro-message {
@@ -136,28 +131,28 @@ h6 {
 }
 
 @media(max-width:767px) {
-    ul.banner-social-buttons {
-        float: left;
-        margin-top: 15px;
-    }
-}
+  ul.banner-social-buttons {
+      float: left;
+      margin-top: 15px;
+  }
+  .banner h2 {
+      margin: 0;
+      text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+      font-size: 2.2em;
+  }
 
-@media(max-width:767px) {
-    .banner h2 {
-        margin: 0;
-        text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-        font-size: 3em;
-    }
+  ul.banner-social-buttons > li {
+      display: block;
+      margin-bottom: 20px;
+      padding: 0;
+  }
 
-    ul.banner-social-buttons > li {
-        display: block;
-        margin-bottom: 20px;
-        padding: 0;
-    }
-
-    ul.banner-social-buttons > li:last-child {
-        margin-bottom: 0;
-    }
+  ul.banner-social-buttons > li:last-child {
+      margin-bottom: 0;
+  }
+  .network-name {
+		font-size: .8em;
+  }
 }
 
 footer {
