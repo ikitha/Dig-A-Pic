@@ -28,7 +28,7 @@ class PhotosController < ApplicationController
 
   def create
     if @current_user.banks.empty?
-      flash[:error] = "Please link a bank account to recieve payment"
+      flash[:error] = "Please link a bank account to receive payment"
       redirect_to new_user_bank_path
     else
       @photo = @current_user.photos.create(photo_params)
