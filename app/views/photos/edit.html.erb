@@ -1,8 +1,3 @@
-<h1>Photos#edit</h1>
-
-
-<h1>Edit a photo</h1>
-
 <% if @photo.errors.any? %>
   <ul class = "text-danger list-style-none">
    <%  for err in @photo.errors.full_messages %>
@@ -12,25 +7,30 @@
     <% end %>
   </ul>
 <% end %>
+<div class="jumbotron">
+  <div class="container">
+    <h2>Edit a photo</h2>
+    <br>
+    <%= simple_form_for([@current_user, @photo], method: "put", html: {class: 'form-horizontal' }) do |f| %>
+    <div class = "form-group">
+      <%= f.input(:title, input_html: {maxlength: 50}, autofocus: true, class: "form-control") %>
+    </div>
 
-<%= simple_form_for([@current_user, @photo], method: "put", html: {class: 'form-horizontal' }) do |f| %>
-<div class = "form-group">
-  <%= f.input(:title, input_html: {maxlength: 50}, autofocus: true, class: "form-control") %>
-</div>
+    <div class="form-group">
+      <%= f.uploadcare_field :url, class: "form-control" %>
+    </div>
 
-<div class="form-group">
-  <%= f.uploadcare_field :url, class: "form-control" %>
-</div>
+    <div class="form-group">
+      <%= f.input(:price,  class: "form-control") %>
+    </div>
 
-<div class="form-group">
-  <%= f.input(:price,  class: "form-control") %>
+    <div class="form-group">
+      <% @categories.each do |c| %>
+      <%= f.check_box(:categories, {checked: @photo.categories.include?(c), multiple: true}, c.id.to_i, nil) %>
+      <%= c.name %>
+      <% end %>
+    </div>
+    <%= f.button :submit, "Edit a photo!", class: "btn btn-lg btn-info" %>
+    <% end %>
+  </div>
 </div>
-
-<div class="form-group">
-  <% @categories.each do |c| %>
-  <%= f.check_box(:categories, {checked: @photo.categories.include?(c), multiple: true}, c.id.to_i, nil) %>
-  <%= c.name %>
-  <% end %>
-</div>
-<%= f.button :submit, "Edit a photo!", class: "btn btn-lg btn-info" %>
-<% end %>

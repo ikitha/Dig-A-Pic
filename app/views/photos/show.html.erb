@@ -2,35 +2,35 @@
 	<div class="row">
 		
 		<div class="col-md-12 pic">
-			<%= image_tag("#{@photo.url}-/resize/x700/") %>
-		</div>
+			<%= image_tag("#{@photo.url}-/resize/1000x/") %>
 		</div>
 	</div>
+</div>
 <div class="jumbotron">
-<div class="row">
-<div class="col-md-4">
-	<h4>Title: <%= @photo.title %></h4>
-	<h4>
-		Price: <%= @photo.price %>
-	</h4>
-</div>
-<div class="col-md-4">
-	<h4>
-		Tags: 
-		<% @photo.categories.each do |c| %>
-		<li><small><%= c.name %></small></li>
-		<% end %>
-	</h4>
+	<div class="row">
+		<div class="col-md-4">
+			<h4>Title: <%= @photo.title %></h4>
+			<h4>
+				Price: <%= @photo.price %>
+			</h4>
+		</div>
+		<div class="col-md-4">
+			<h4>
+				Tags: 
+				<% @photo.categories.each do |c| %>
+				<li><small><%= c.name %></small></li>
+				<% end %>
+			</h4>
+		</div>
+		<div class="col-md-4">
+			<% if @current_user.id == params[:user_id].to_i %>
+			<%= link_to(" Edit ", edit_user_photo_path(@current_user, @photo), class: "btn btn-info pull-right edit-button") %>
+			<br>
+			<br>
+			<%= link_to 'Delete',  user_photo_path(@current_user, @photo.id),  method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info pull-right" %>
+			<% end %>
+			<% if @current_user.id != params[:user_id].to_i %>
+			<%= link_to("Purchase", new_photo_order_path(@current_user, @photo.id), class: "btn btn-info pull-right") %>
+			<% end %>
+		</div>
 	</div>
-	<div class="col-md-4">
-		<% if @current_user.id == params[:user_id].to_i %>
-		<%= link_to(" Edit ", edit_user_photo_path(@current_user, @photo), class: "btn btn-info pull-right edit-button") %>
-		<br>
-		<br>
-		<%= link_to 'Delete',  user_photo_path(@current_user, @photo.id),  method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info pull-right" %>
-		<% end %>
-		<% if @current_user.id != params[:user_id].to_i %>
-		<%= link_to("Purchase", new_photo_order_path(@current_user, @photo.id), class: "btn btn-info pull-right") %>
-		<% end %>
-	</div>
-</div>

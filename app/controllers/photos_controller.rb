@@ -16,7 +16,9 @@ class PhotosController < ApplicationController
     @portraits = Category.find(1).photos.reverse.first(9)
     @bw = Category.find(2).photos
     @landscape = Category.find(3).photos
+    #binding.pry
     @abstract = Category.find(4).photos
+
     #binding.pry
   end
 
