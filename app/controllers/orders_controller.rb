@@ -36,7 +36,7 @@ class OrdersController < ApplicationController
 
   	#binding.pry
 
-  	if @buyer.balanced_href.nil?
+  	if @buyer.balanced_href.empty?
 
 
   		buyer_b = Balanced::Customer.new(:name => "#{@buyer.firstname} #{@buyer.lastname}", :meta => {:database_id => @buyer.id}).save
