@@ -32,15 +32,15 @@ User.create({firstname: "David", lastname: "Gudeman", email: "test4@example.com"
 
 
 
-Photo.create({title: "test1", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 1})
-Photo.create({title: "test2", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 2})
-Photo.create({title: "test3", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 3})
-Photo.create({title: "test4", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 4})
-Photo.create({title: "test5", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 1})
-Photo.create({title: "test6", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 2})
-Photo.create({title: "test7", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 3})
-Photo.create({title: "test8", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 4})
-Photo.create({title: "test9", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 4})
+# Photo.create({title: "test1", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 1})
+# Photo.create({title: "test2", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 2})
+# Photo.create({title: "test3", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 3})
+# Photo.create({title: "test4", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 4})
+# Photo.create({title: "test5", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 1})
+# Photo.create({title: "test6", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 2})
+# Photo.create({title: "test7", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 3})
+# Photo.create({title: "test8", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 4})
+# Photo.create({title: "test9", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 4})
 
 
 
@@ -52,8 +52,8 @@ Category.create({name: "Landscape"})
 Category.create({name: "Abstract"})
 
 
-cate = Category.find(1)
-cate.photos << Photo.all
+# cate = Category.find(1)
+# cate.photos << Photo.all
 
 
 #Alternative
