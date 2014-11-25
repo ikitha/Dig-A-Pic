@@ -38,8 +38,8 @@ class BanksController < ApplicationController
     #binding.pry
 
 
-
-  		redirect_to all_photos_path
+      flash[:success] = "Successfully added bank account"
+  		redirect_to new_user_photo_path(@current_user.id)
   	end
 
 
