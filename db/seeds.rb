@@ -9,8 +9,8 @@
 
 User.create({firstname: "John", lastname: "Doe", email: "test1@example.com", username: "user1", password: "password", reset_token: nil, balanced_href: "/customers/CU4B92X0TKF0WwhWi1cZ5oYM"})
 User.create({firstname: "Jane", lastname: "Doe", email: "test2@example.com", username: "user2", password: "password", reset_token: nil, balanced_href: "/customers/CU1qeYBwmtwt2CkSSYlvcDUF"})
-User.create({firstname: "Joe", lastname: "Testa", email: "test3@example.com", username: "user3", password: "password", reset_token: nil, balanced_href: ""})
-User.create({firstname: "David", lastname: "Gudeman", email: "test4@example.com", username: "user4", password: "password", reset_token: nil, balanced_href: ""})
+User.create({firstname: "Joe", lastname: "Testa", email: "test3@example.com", username: "user3", password: "password", reset_token: nil, balanced_href: "/customers/CU75qw3AWTTDg1qpohCeSttr"})
+User.create({firstname: "David", lastname: "Gudeman", email: "test4@example.com", username: "user4", password: "password", reset_token: nil, balanced_href: "/customers/CU7diy6Z2hLxuXcRAWhfGTzG"})
 
 Card.create({user_id: 1, balanced_href: "/cards/CC2zyCoyspIkgs6UM8SOHiwR"})
 Card.create({user_id: 1, balanced_href: "/cards/CC42fgUyS4NAp2h9djyBLYPz"})
