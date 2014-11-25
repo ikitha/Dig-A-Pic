@@ -3,31 +3,32 @@
 		<div class="col-md-12 accountPage">
 			<h2>Link your bank account to recieve payment for your photos</h2>
 
-			<%= form_tag user_banks_path do %>
+			
+			<%= form_for @bank, url: user_banks_path(@user.id) do |f|%>
 			<div class="bankform">
 				<p>
-					<%= label_tag(:account_number) %>
+					<%= f.label(:account_number) %>
 					<br>
 					<%= text_field_tag(:account_number) %>
 				</p>
 				<p>
-					<%= label_tag(:account_type) %>
+					<%= f.label(:account_type) %>
 					<br>
 					<%= text_field_tag(:account_type, "Checking", disabled: true) %>
 				</p>
 				<p>
-					<%= label_tag(:name) %>
+					<%= f.label(:name) %>
 					<br>
 					<%= text_field_tag(:name, "#{@user.firstname} #{@user.lastname}", disabled: true) %>
 				</p>
 				<p>
-					<%= label_tag(:routing_number) %>
+					<%= f.label(:routing_number) %>
 					<br>
 					<%= text_field_tag(:routing_number) %>
 				</p>
 			</div>
 			<p>
-				<%= submit_tag("Confirm", class: "btn btn-primary") %>
+				<%= f.submit("Confirm", class: "btn btn-primary") %>
 			</p>
 			<% end %>
 		</div>
