@@ -30,7 +30,8 @@
 		<%= link_to 'Delete',  user_photo_path(@current_user, @photo.id),  method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info pull-right" %>
 		<% end %>
 		<% if @current_user.id != params[:user_id].to_i %>
-		<%= link_to("Purchase", new_photo_order_path(@current_user, @photo.id), class: "btn btn-info pull-right") %>
+		
+		<%= link_to("Purchase", new_photo_order_path(@photo.id), class: "btn btn-info pull-right") %>
 		<% end %>
 	</div>
 </div>
