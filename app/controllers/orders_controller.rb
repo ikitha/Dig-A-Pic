@@ -31,12 +31,13 @@ class OrdersController < ApplicationController
   	@photo = Photo.find_by_id(card_params[:photo_id])
   	@seller = @photo.user
   	@buyer = User.find_by_id(session[:user_id])
-    #binding.pry
+    binding.pry
   	merchant_b = Balanced::Customer.fetch(@seller.balanced_href)
 
   	#binding.pry
 
   	if @buyer.balanced_href.nil?
+
 
   		buyer_b = Balanced::Customer.new(:name => "#{@buyer.firstname} #{@buyer.lastname}", :meta => {:database_id => @buyer.id}).save
 
