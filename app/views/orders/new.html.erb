@@ -6,23 +6,24 @@
 			<% if @buyer.cards.empty?  %>
 
 			<%= form_tag photo_orders_path do %>
-
-			<p>
-				<%= label_tag(:number) %>
-				<%= text_field_tag(:number) %>
-			</p>
-			<p>
-				<%= label_tag(:expiration_month) %>
-				<%= text_field_tag(:expiration_month) %>
-			</p>
-			<p>
-				<%= label_tag(:expiration_year) %>
-				<%= text_field_tag(:expiration_year) %>
-			</p>
-			<p>
-				<%= label_tag(:cvv) %>
-				<%= text_field_tag(:cvv) %>
-			</p>
+			<div class="orders">
+				<p>
+					<%= label_tag(:number) %>
+					<%= text_field_tag(:number) %>
+				</p>
+				<p>
+					<%= label_tag(:expiration_month) %>
+					<%= text_field_tag(:expiration_month) %>
+				</p>
+				<p>
+					<%= label_tag(:expiration_year) %>
+					<%= text_field_tag(:expiration_year) %>
+				</p>
+				<p>
+					<%= label_tag(:cvv) %>
+					<%= text_field_tag(:cvv) %>
+				</p>
+			</div>
 			<p>
 				<%= submit_tag("Confirm", class: "btn btn-primary") %>
 			</p>

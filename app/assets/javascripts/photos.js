@@ -7,3 +7,36 @@
 // 	// 	console.log(data)
 // 	// })
 // })
+
+// $(document).ready(function(){
+
+// 	$("#bw").hide()
+// 	$("#landscape").hide()
+// 	$("#abstract").hide()
+
+// 	$(".portrait").on("click", function(e){
+// 		$("#bw").hide()
+// 		$("#landscape").hide()
+// 		$("#abstract").hide()
+// 		$("#portrait").fadeIn(500)
+// 	})
+// 	$(".bw").on("click", function(e){
+// 		console.log($("#portrait"))
+// 		$("#portrait").hide()
+// 		$("#landscape").hide()
+// 		$("#abstract").hide()
+// 		$("#bw").fadeIn(500)
+// 	})
+// 	$(".landscape").on("click", function(e){
+// 		$("#bw").hide()
+// 		$("#portrait").hide()
+// 		$("#abstract").hide()
+// 		$("#landscape").fadeIn(500)
+// 	})
+// 	$(".abstract").on("click", function(e){
+// 		$("#bw").hide()
+// 		$("#landscape").hide()
+// 		$("#portrait").hide()
+// 		$("#abstract").fadeIn(500)
+// 	})
+// })

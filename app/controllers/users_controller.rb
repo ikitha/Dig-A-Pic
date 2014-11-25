@@ -14,14 +14,17 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find_by_id(params[:id])
+    if session[:user_id].to_i != params[:user_id].to_i 
+      redirect_to all_photos_path
+    else
+      @user = User.find_by_id(params[:id])
+    end
     #prevent_user(@user)
   end
 
    def update
     @user = User.find(params[:id])
     @user.update_attributes(user_params)
-
     if(@user.save)
       session[:user_id] = @user.id
       #session[:is_admin] = @user.is_admin
@@ -30,7 +33,6 @@ class UsersController < ApplicationController
     else
       render :edit
     end
-
    end
 
   def destroy

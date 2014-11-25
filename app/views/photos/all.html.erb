@@ -1,20 +1,51 @@
-<div role="tabpanel">
-  <ul class="nav nav-tabs" role="tablist" id="myTab">
-    <li role="presentation" class="active"><a href="#portrait" aria-controls="portrait" role="tab" data-toggle="tab">Portrait</a></li>
-    <li role="presentation"><a href="#bw" aria-controls="bw" role="tab" data-toggle="tab">Black and White</a></li>
-    <li role="presentation"><a href="#landscape" aria-controls="landscape" role="tab" data-toggle="tab">Landscape</a></li>
-    <li role="presentation"><a href="#abstract" aria-controls="abstract" role="tab" data-toggle="tab">Abstract</a></li>
+<!-- <div role="tabpanel">
+
+  Nav tabs
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
   </ul>
 
+  Tab panes
   <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">first</div>
+    <div role="tabpanel" class="tab-pane" id="profile">second</div>
+    <div role="tabpanel" class="tab-pane" id="messages">third</div>
+    <div role="tabpanel" class="tab-pane" id="settings">work</div>
+  </div>
 
-    <div role="tabpanel" class="tab-pane active fade" id="portrait">
-      <% @portraits.each_with_index do |p, index| %>
+</div>
+ -->
 
-      <% if index == 0 %>
+<div role="tabpanel">
+  <ul class="nav nav-tabs" role="tablist" id="myTab">
+    <li role="presentation" class="active"><a href ="#portrait" aria-controls="portrait" role="tab" data-toggle="tab">Portrait</a></li>
+    <li role="presentation"><a href ="#bw" aria-controls="bw" role="tab" data-toggle="tab">Black and White</a></li>
+    <li role="presentation"><a href ="#landscape"  aria-controls="landscape" role="tab" data-toggle="tab">Landscape</a></li>
+    <li role="presentation"><a href ="#abstract" aria-controls="abstract" role="tab" data-toggle="tab">Abstract</a></li>
+  </ul>
 
-      <div class="row text-center rc">
-        <div class="col-sm-4">
+ <!--  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="portrait">first</div>
+    <div role="tabpanel" class="tab-pane" id="bw">second</div>
+    <div role="tabpanel" class="tab-pane" id="landscape">third</div>
+    <div role="tabpanel" class="tab-pane" id="abstract">work</div>
+  </div>
+</div> -->
+
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="portrait">
+  
+
+      <div class="row">
+
+     <% @portraits.each_with_index do |p, index| %>
+      <% if index % 4 == 0 %>
+        </div>
+        <div class="row">
+        <div class="col-sm-3">
 
           <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
           <div style="display:none;">
@@ -25,225 +56,171 @@
             </div>
           </div>
         </div>
-
-        <% elsif index % 9 == 0 %>
-
-      </div>
-
-      <% elsif index % 3 == 0 %>
-
-    </div>
-    <div class="row text-center rc">
-      <div class="col-sm-4">
-        <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
-        <div style="display:none;">
-          <div id=<%=p.id%> class="text-center" >
-            <%=image_tag("#{p.url}-/resize/800x/")%>
-            <br>
-            <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
-          </div>
-        </div>
-      </div>
-
       <% else %>
+        <div class="col-sm-3">
 
-      <div class="col-sm-4">
-        <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
-        <div style="display:none;">
-          <div id=<%=p.id%> class="text-center" >
-            <%=image_tag("#{p.url}-/resize/800x/")%>
-            <br>
-            <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
+          <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
+          <div style="display:none;">
+            <div id=<%=p.id%> class="text-center" >
+              <%=image_tag("#{p.url}-/resize/800x/")%>
+              <br>
+              <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
+            </div>
           </div>
         </div>
-      </div>
-
-      <% end %> 
-      <% end %>
-
-    </div>
+      <% end  %> 
+    <% end  %> 
   </div>
+  </div>
+  
 
-  <div role="tabpanel" class="tab-pane fade" id="bw">
-    <% @bw.each_with_index do |p, index| %>
+  <div role="tabpanel" class="tab-pane" id="bw">
+  
+      <div class="row">
 
-    <% if index == 0 %>
-
-    <div class="row text-center rc">
-      <div class="col-sm-4">
-
-        <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
-        <div style="display:none;">
-          <div id=<%=p.id%> class="text-center" >
-            <%=image_tag("#{p.url}-/resize/800x/")%>
-            <br>
-            <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
+       <% @bw.each_with_index do |p, index| %>
+        <% if index % 4 == 0 %>
           </div>
-        </div>
-      </div>
+          <div class="row">
+          <div class="col-sm-3">
 
-      <% elsif index % 9 == 0 %>
+            <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
+            <div style="display:none;">
+              <div id=<%=p.id%> class="text-center" >
+                <%=image_tag("#{p.url}-/resize/800x/")%>
+                <br>
+                <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
+              </div>
+            </div>
+          </div>
+        <% else %>
+          <div class="col-sm-3">
 
-    </div>
+            <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
+            <div style="display:none;">
+              <div id=<%=p.id%> class="text-center" >
+                <%=image_tag("#{p.url}-/resize/800x/")%>
+                <br>
+                <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
+              </div>
+            </div>
+          </div>
+        
+        
+        <% end  %> 
 
-    <% elsif index % 3 == 0 %>
-
-  </div>
-  <div class="row text-center rc">
-    <div class="col-sm-4">
-      <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
-      <div style="display:none;">
-        <div id=<%=p.id%> class="text-center" >
-          <%=image_tag("#{p.url}-/resize/800x/")%>
-          <br>
-          <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
-        </div>
-      </div>
-    </div>
-
-    <% else %>
-
-    <div class="col-sm-4">
-      <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
-      <div style="display:none;">
-        <div id=<%=p.id%> class="text-center" >
-          <%=image_tag("#{p.url}-/resize/800x/")%>
-          <br>
-          <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
-        </div>
-      </div>
-    </div>
-
-    <% end %> 
-    <% end %>
-
-  </div>
-</div>
-<div role="tabpanel" class="tab-pane fade" id="landscape"></div>
-<% @landscape.each_with_index do |p, index| %>
-
-<% if index == 0 %>
-
-<div class="row text-center rc">
-  <div class="col-sm-4">
-
-    <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
-    <div style="display:none;">
-      <div id=<%=p.id%> class="text-center" >
-        <%=image_tag("#{p.url}-/resize/800x/")%>
-        <br>
-        <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
-      </div>
+      <% end  %> 
     </div>
   </div>
+    
+  
+  <div role="tabpanel" class="tab-pane" id="landscape">
+  
+      <div class="row">
 
-  <% elsif index % 9 == 0 %>
+       <% @landscape.each_with_index do |p, index| %>
+        <% if index % 4 == 0 %>
+          </div>
+          <div class="row">
+          <div class="col-sm-3">
 
-</div>
+            <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
+            <div style="display:none;">
+              <div id=<%=p.id%> class="text-center" >
+                <%=image_tag("#{p.url}-/resize/800x/")%>
+                <br>
+                <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
+              </div>
+            </div>
+          </div>
+        <% else %>
+          <div class="col-sm-3">
 
-<% elsif index % 3 == 0 %>
+            <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
+            <div style="display:none;">
+              <div id=<%=p.id%> class="text-center" >
+                <%=image_tag("#{p.url}-/resize/800x/")%>
+                <br>
+                <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
+              </div>
+            </div>
+          </div>
+        
+        
+        <% end  %> 
 
-</div>
-<div class="row text-center rc">
-  <div class="col-sm-4">
-    <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
-    <div style="display:none;">
-      <div id=<%=p.id%> class="text-center" >
-        <%=image_tag("#{p.url}-/resize/800x/")%>
-        <br>
-        <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
-      </div>
+      <% end  %> 
     </div>
   </div>
 
-  <% else %>
+ <div role="tabpanel" class="tab-pane" id="abstract">
+  
+      <div class="row">
 
-  <div class="col-sm-4">
-    <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
-    <div style="display:none;">
-      <div id=<%=p.id%> class="text-center" >
-        <%=image_tag("#{p.url}-/resize/800x/")%>
-        <br>
-        <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
-      </div>
+       <% @abstract.each_with_index do |p, index| %>
+        <% if index % 4 == 0 %>
+          </div>
+          <div class="row">
+          <div class="col-sm-3">
+
+            <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
+            <div style="display:none;">
+              <div id=<%=p.id%> class="text-center" >
+                <%=image_tag("#{p.url}-/resize/800x/")%>
+                <br>
+                <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
+              </div>
+            </div>
+          </div>
+        <% else %>
+          <div class="col-sm-3">
+
+            <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
+            <div style="display:none;">
+              <div id=<%=p.id%> class="text-center" >
+                <%=image_tag("#{p.url}-/resize/800x/")%>
+                <br>
+                <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
+              </div>
+            </div>
+          </div>
+        
+        
+        <% end  %> 
+
+      <% end  %> 
+    </div>
+  </div>
     </div>
   </div>
 
-  <% end %> 
-  <% end %>
 
-</div>
-</div>
-<div role="tabpanel" class="tab-pane fade" id="abstract">
-  <% @abstract.each_with_index do |p, index| %>
+    
 
-  <% if index == 0 %>
 
-  <div class="row text-center rc">
-    <div class="col-sm-4">
 
-      <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
-      <div style="display:none;">
-        <div id=<%=p.id%> class="text-center" >
-          <%=image_tag("#{p.url}-/resize/800x/")%>
-          <br>
-          <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
-        </div>
-      </div>
-    </div>
 
-    <% elsif index % 9 == 0 %>
 
-  </div>
-
-  <% elsif index % 3 == 0 %>
-
-</div>
-<div class="row text-center rc">
-  <div class="col-sm-4">
-    <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
-    <div style="display:none;">
-      <div id=<%=p.id%> class="text-center" >
-        <%=image_tag("#{p.url}-/resize/800x/")%>
-        <br>
-        <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
-      </div>
-    </div>
-  </div>
-
-  <% else %>
-
-  <div class="col-sm-4">
-    <%= link_to image_tag("#{p.url}-/resize/300x/"), "##{p.id}", class: "fancybox" %>
-    <div style="display:none;">
-      <div id=<%=p.id%> class="text-center" >
-        <%=image_tag("#{p.url}-/resize/800x/")%>
-        <br>
-        <%= link_to "More Info", user_photo_path(p.user_id,p.id), class:"btn btn-success" %>
-      </div>
-    </div>
-  </div>
-
-  <% end %> 
-  <% end %>
-
-</div>
-</div>
-</div>
-</div>
 
 
 
 
 <script>
-  $(function () {
-    $('#myTab a:first').tab('show')
+  $(document).ready(function() {
+  //   $('#myTab a:first').tab('show');
+  
+  // $('#myTab li:eq(0) a').on("click",function(e){
+  //   $('#myTab li:eq(2) a').tab('hide') 
+  // })
+  
+
+  $('#myTab a').click(function (e) {
+
+    e.preventDefault()
+    $(this).tab('show')
   })
 
-
-
-
-  $(document).ready(function() {
-    $("a.fancybox").fancybox();
-  });
+  $("a.fancybox").fancybox();
+})  
 </script>
+
