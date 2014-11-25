@@ -7,12 +7,22 @@ class BanksController < ApplicationController
   end
 
   def create
-    binding.pry
+    #binding.pry
+
   	if params[:user_id].to_i != @current_user.id
   		redirect_to all_photos_path
   	else
 
+
+
   	user = User.find_by_id(@current_user.id)
+
+      if (user.balanced_href.empty?)
+        user_b = Balanced::Customer.new(:name => "#{user.firstname} #{user.lastname}", :meta => {:database_id => user.id}).save
+        user.update_attribute(:balanced_href, user_b.attributes[:href])
+      end
+
+
   	bank_account = Balanced::BankAccount.new(
 		  :account_number => params[:account_number],
 		  :account_type => 'checking',
@@ -20,10 +30,12 @@ class BanksController < ApplicationController
 		  :routing_number => params[:routing_number]
 		).save
 
+    puts bank_account.inspect
+
   	bank_account.associate_to_customer(user.balanced_href)
 
   	bank = Bank.create(:user_id => user.id, :balanced_href => bank_account.attributes[:href])
-    binding.pry
+    #binding.pry
 
 
 
